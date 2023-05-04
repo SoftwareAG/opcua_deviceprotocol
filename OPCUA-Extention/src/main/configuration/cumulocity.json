@@ -1,0 +1,42 @@
+{
+	"apiVersion": "1",
+	"version": "@project.version@",
+	"provider": {
+		"name": "NTT ThingsCLoud"
+	},
+	"isolation": "PER_TENANT",
+	"requiredRoles": [
+		"ROLE_INVENTORY_READ",
+		"ROLE_INVENTORY_ADMIN",
+		"ROLE_MEASUREMENT_READ",
+		"ROLE_MEASUREMENT_ADMIN",
+		"ROLE_OPTION_MANAGEMENT_READ",
+		"ROLE_OPTION_MANAGEMENT_ADMIN",
+		"ROLE_EVENT_READ",
+		"ROLE_EVENT_ADMIN",
+		"ROLE_IDENTITY_READ",
+		"ROLE_IDENTITY_ADMIN"
+	],
+	"roles": [],
+	"livenessProbe": {
+		"httpGet": {
+			"path": "/health",
+			"port": 80
+		}
+	},
+	"readinessProbe": {
+		"httpGet": {
+			"path": "/health",
+			"port": 80
+		}
+	},
+    "resources": {
+        "cpu": "1",
+        "memory": "1G"
+    },
+    "requestedResources":{
+            "cpu": "100m",
+            "memory": "128Mi"
+    }
+	
+}
