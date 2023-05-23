@@ -1,32 +1,3 @@
-# PLEASE REPLACE THE PART BELOW WITH YOUR OWN CONTENT !!!
-
----
-
-# Template for Cumulocity IoT OS Repos
-
-This is a template repo for Cumulocity-IoT related open-source repos at SoftwareAG Organization. It contains basic guidelines for
- - Naming the Repo
- - FOSS Licensing
- - Topics
- - README.md structure
- - GitHub Setting
-
-## How to use this template
-
-Click here [Use this template](https://github.com/SoftwareAG/cumulocity-iot-template/generate) to create a new repo based on this template.
-
-## Naming the Repo
-
-* Use lower case names. Combine words with a "-". Avoid using camelCase or other separators.
-* Follow the pattern: **[productname]-[reponame]-[productfeature]**.
-* Examples for good repo names: "cumulocity-kpi-trend-widget", "cumulocity-hono-microservice"
-* Examples for bad repo names: "C8YPythonAgent", "EPLApps_Samples"
-
-
-Please make sure that you add a meaningful description to your repo.
-
-## FOSS Licensing & Copyright
-
 ### License
 We strongly suggest that you use the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0).
 If you use this repo as a template the license will be automatically applied to your repo.
@@ -64,35 +35,17 @@ limitations under the License.
 
 For Cumulocity IoT content please add the topics
 
-* cumulocity-iot
-* iot-analytics
+* cumulocity-IoT OPCUA agent
+* Device protocol creation (automation)
 
-Also add one or multiple topics of the following categories:
-* 'agent' or 'cumulocity-agent'
-* 'webapp' or 'cumulocity-webapp'
-* 'widget' or 'cumulocity-widget'
-* 'client' or 'cumulocity-client'
-* 'cli' or 'cumulocity-cli'
-* 'microservice' or 'cumulocity-microservice'
-* 'example' or 'cumulocity-example'
-* 'tutorial' or 'cumulocity-tutorial'
-* 'simulator' or 'cumulocity-simulator'
-* 'extension' or 'cumulocity-extension'
-* 'documentation' or 'cumulocity-documentation'
 
-Beside that you should add additional topics like 'iot' or others which match to the content of your repo.
+* Overview about the Repo / Component --
+   This microservice will be used to automate the OPCUA device protocol creation based on below CSV template. This uses OPCUA microservice end points to create a    device protocol automatically and enable them. Below is the sample device protocol (CSV) file.
+![image](https://github.com/SoftwareAG/opcua_deviceprotocol/assets/20227250/1c0950ce-9ea4-4d4f-91b2-4cb4181055ec)
 
-## README structure
-
-The README.md should be structured in the following way:
-
-1. Overview about the Repo / Component
-2. Installation
-3. Run / Quick Start
-4. Build
-5. (opt) Release Notes
-6. (opt) Contributing Guidelines (either part of the README or in a separate CONTRIBUTING.md)
-7. Footer to TechCommunity
+* Installation
+   This microservice can be built and run locally pointing to a tenant or can be deployed on a target tenant where this device protocol needs to be created. The build and installation will be same as standard cumulocity IoT microservice build & deploy steps - https://cumulocity.com/guides/microservice-sdk/concept/#configure-the-microservice-utility-tool
+* Footer to TechCommunity
 
 Please always add the following footer to your README.md
 
