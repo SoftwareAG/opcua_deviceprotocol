@@ -1,51 +1,21 @@
-### License
-We strongly suggest that you use the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0).
-If you use this repo as a template the license will be automatically applied to your repo.
-
-If you don't use this template you should select the Apache License on repo creation:
-
-![img_2.png](img_2.png)
-
-If you use open-source 3rd Party Software please check the [license compatibility](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-compatibility-checker) 
-
-### Copyright Header
-
-Each file that contains code from yourself should contain a copyright header in the following format:
-````
-Copyright (c) 2022 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA,
-and/or its subsidiaries and/or its affiliates and/or their licensors.
-
-SPDX-License-Identifier: Apache-2.0
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-````
-
-## Topics
-
-For Cumulocity IoT content please add the topics
-
-* cumulocity-IoT OPCUA agent
-* Device protocol creation (automation)
-
-
-* Overview about the Repo / Component --
-   This microservice will be used to automate the OPCUA device protocol creation based on below CSV template. This uses OPCUA microservice end points to create a    device protocol automatically and enable them. Below is the sample device protocol (CSV) file.
+### Overview 
+This microservice will be used to automate the OPCUA device protocol creation based on below CSV template. This uses OPCUA microservice end points to create a    device protocol automatically and enable them. Below is the sample device protocol (CSV) file.
 ![image](https://github.com/SoftwareAG/opcua_deviceprotocol/assets/20227250/1c0950ce-9ea4-4d4f-91b2-4cb4181055ec)
 
-* Installation
-   This microservice can be built and run locally pointing to a tenant or can be deployed on a target tenant where this device protocol needs to be created. The build and installation will be same as standard cumulocity IoT microservice build & deploy steps - https://cumulocity.com/guides/microservice-sdk/concept/#configure-the-microservice-utility-tool
-* Footer to TechCommunity
+### Prerequisite
+
+* Java 11
+* Maven 3.6 and above
+
+### Installation
+Go into main directory and run below command to build and deploy this microservice
+
+Note:- This microservice can be built and run locally pointing to a tenant or can be deployed on a target tenant where this device protocol needs to be created. The build and installation will be same as standard cumulocity IoT microservice build & deploy steps - https://cumulocity.com/guides/microservice-sdk/concept/#configure-the-microservice-utility-tool
+
+### Usage
+
+Call the below API using Sample CSV file created
+
 
 Please always add the following footer to your README.md
 
