@@ -5,19 +5,7 @@ This microservice will be used to automate the OPCUA device protocol creation ba
 
 ### Template field description
 
-FieldName	Description	Mandatory
-Device protocol name	Name of the device Protocol	y
-Tag name	OPCUA Server Tag Name	y
-Data type	c8y domain model (Measurement/ Event/ Alarm)	y
-Type	custom cumulocity Type	y
-Text	fragment / text	y
-Text2	Series/ additional info	
-Unit	unit of measurement	
-Enabled	indicates weather device protocol must be enabled	y
-Server id	Id of the OPCUA server	y
-Server name	OPCUA server Name	y
-Subscription type	type of data polling	y
-Sampling period	interval	y
+
 ![image](https://github.com/SoftwareAG/opcua_deviceprotocol/assets/20227250/5594f139-b8a8-4cb2-81ad-42b4aa72b2d5)
 
 ### Prerequisite
