@@ -19,7 +19,7 @@ import com.opcua.util.Util;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping(value = "ntt/api/")
+@RequestMapping(value = "api/")
 @Slf4j
 public class RestService {
 	
