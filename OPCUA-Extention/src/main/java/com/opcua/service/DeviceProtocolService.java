@@ -44,7 +44,7 @@ public class DeviceProtocolService {
 	@Autowired
 	private HttpService httpService;
 
-	public String readFile(MultipartFile file) {
+	public String readFile(MultipartFile file, String mode) {
 		String delimiter = ",";
 		String line;
 		List<String[]> lines = new ArrayList<String[]>();
@@ -117,31 +117,35 @@ public class DeviceProtocolService {
 							name = name + protocolName[i] + (i < protocolName.length - 1 ? ":" : "");
 						}
 						map.setName(name);
-						if (!mapList.contains(map)) {
-							map.setBrowsePath(Arrays.asList(deviceProtocolInput.getTagname().replace(";", ",").split(",")));
-							if (deviceProtocolInput.getDatatype().equalsIgnoreCase("measurement")) {
-								MeasurementCreation measurementCreation = new MeasurementCreation();
-								measurementCreation.setType(deviceProtocolInput.getType());
-								measurementCreation.setFragmentName(deviceProtocolInput.getText());
-								measurementCreation.setSeries(deviceProtocolInput.getText2());
-								measurementCreation.setUnit(deviceProtocolInput.getUnit());
-								map.setMeasurementCreation(measurementCreation);
-							} else if (deviceProtocolInput.getDatatype().equalsIgnoreCase("event")) {
-								EventCreation eventCreation = new EventCreation();
-								eventCreation
-										.setText("Event for " + deviceProtocolInput.getDeviceprotocolname().split("_")[1]);
-								eventCreation.setType(deviceProtocolInput.getType());
-								map.setEventCreation(eventCreation);
-							} else if (deviceProtocolInput.getDatatype().equalsIgnoreCase("alarm")) {
-								AlarmCreation alarmCreation = new AlarmCreation();
-								alarmCreation.setSeverity(deviceProtocolInput.getText());
-								alarmCreation
-										.setText("Alarm for " + deviceProtocolInput.getDeviceprotocolname().split("_")[1]);
-								alarmCreation.setType(deviceProtocolInput.getType());
-								alarmCreation.setStatus(deviceProtocolInput.getText2());
-								map.setAlarmCreation(alarmCreation);
-							}
-							mapList.add(map);
+						if (mode.equalsIgnoreCase("create")) {
+							if (!mapList.contains(map)) {
+								map.setBrowsePath(Arrays.asList(deviceProtocolInput.getTagname().replace(";", ",").split(",")));
+								if (deviceProtocolInput.getDatatype().equalsIgnoreCase("measurement")) {
+									MeasurementCreation measurementCreation = new MeasurementCreation();
+									measurementCreation.setType(deviceProtocolInput.getType());
+									measurementCreation.setFragmentName(deviceProtocolInput.getText());
+									measurementCreation.setSeries(deviceProtocolInput.getText2());
+									measurementCreation.setUnit(deviceProtocolInput.getUnit());
+									map.setMeasurementCreation(measurementCreation);
+								} else if (deviceProtocolInput.getDatatype().equalsIgnoreCase("event")) {
+									EventCreation eventCreation = new EventCreation();
+									eventCreation
+											.setText("Event for " + deviceProtocolInput.getDeviceprotocolname().split("_")[1]);
+									eventCreation.setType(deviceProtocolInput.getType());
+									map.setEventCreation(eventCreation);
+								} else if (deviceProtocolInput.getDatatype().equalsIgnoreCase("alarm")) {
+									AlarmCreation alarmCreation = new AlarmCreation();
+									alarmCreation.setSeverity(deviceProtocolInput.getText());
+									alarmCreation
+											.setText("Alarm for " + deviceProtocolInput.getDeviceprotocolname().split("_")[1]);
+									alarmCreation.setType(deviceProtocolInput.getType());
+									alarmCreation.setStatus(deviceProtocolInput.getText2());
+									map.setAlarmCreation(alarmCreation);
+								}
+								mapList.add(map);
+							} 
+						} else if (mode.equalsIgnoreCase("delete")) {
+							mapList.remove(map);
 						}
 						deviceProtocol.setMappings(mapList);
 						SubscriptionType subscriptionType = new SubscriptionType();
@@ -194,31 +198,35 @@ public class DeviceProtocolService {
 							name = name + protocolName[i] + (i < protocolName.length - 1 ? ":" : "");
 						}
 						map.setName(name);
-						if (!mapList.contains(map)) {
-							map.setBrowsePath(Arrays.asList(deviceProtocolInput.getTagname().replace(";", ",").split(",")));
-							if (deviceProtocolInput.getDatatype().equalsIgnoreCase("measurement")) {
-								MeasurementCreation measurementCreation = new MeasurementCreation();
-								measurementCreation.setType(deviceProtocolInput.getType());
-								measurementCreation.setFragmentName(deviceProtocolInput.getText());
-								measurementCreation.setSeries(deviceProtocolInput.getText2());
-								measurementCreation.setUnit(deviceProtocolInput.getUnit());
-								map.setMeasurementCreation(measurementCreation);
-							} else if (deviceProtocolInput.getDatatype().equalsIgnoreCase("event")) {
-								EventCreation eventCreation = new EventCreation();
-								eventCreation
-										.setText("Event for " + deviceProtocolInput.getDeviceprotocolname().split("_")[1]);
-								eventCreation.setType(deviceProtocolInput.getType());
-								map.setEventCreation(eventCreation);
-							} else if (deviceProtocolInput.getDatatype().equalsIgnoreCase("alarm")) {
-								AlarmCreation alarmCreation = new AlarmCreation();
-								alarmCreation.setSeverity(deviceProtocolInput.getText());
-								alarmCreation
-										.setText("Alarm for " + deviceProtocolInput.getDeviceprotocolname().split("_")[1]);
-								alarmCreation.setType(deviceProtocolInput.getType());
-								alarmCreation.setStatus(deviceProtocolInput.getText2());
-								map.setAlarmCreation(alarmCreation);
-							}
-							mapList.add(map);
+						if (mode.equalsIgnoreCase("create")) {
+							if (!mapList.contains(map)) {
+								map.setBrowsePath(Arrays.asList(deviceProtocolInput.getTagname().replace(";", ",").split(",")));
+								if (deviceProtocolInput.getDatatype().equalsIgnoreCase("measurement")) {
+									MeasurementCreation measurementCreation = new MeasurementCreation();
+									measurementCreation.setType(deviceProtocolInput.getType());
+									measurementCreation.setFragmentName(deviceProtocolInput.getText());
+									measurementCreation.setSeries(deviceProtocolInput.getText2());
+									measurementCreation.setUnit(deviceProtocolInput.getUnit());
+									map.setMeasurementCreation(measurementCreation);
+								} else if (deviceProtocolInput.getDatatype().equalsIgnoreCase("event")) {
+									EventCreation eventCreation = new EventCreation();
+									eventCreation
+											.setText("Event for " + deviceProtocolInput.getDeviceprotocolname().split("_")[1]);
+									eventCreation.setType(deviceProtocolInput.getType());
+									map.setEventCreation(eventCreation);
+								} else if (deviceProtocolInput.getDatatype().equalsIgnoreCase("alarm")) {
+									AlarmCreation alarmCreation = new AlarmCreation();
+									alarmCreation.setSeverity(deviceProtocolInput.getText());
+									alarmCreation
+											.setText("Alarm for " + deviceProtocolInput.getDeviceprotocolname().split("_")[1]);
+									alarmCreation.setType(deviceProtocolInput.getType());
+									alarmCreation.setStatus(deviceProtocolInput.getText2());
+									map.setAlarmCreation(alarmCreation);
+								}
+								mapList.add(map);
+							} 
+						} else if (mode.equalsIgnoreCase("delete")) {
+							mapList.remove(map);
 						}
 						deviceProtocol.setMappings(mapList);
 //						

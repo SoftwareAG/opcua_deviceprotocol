@@ -3,10 +3,9 @@ package com.opcua.util;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
-
 import com.cumulocity.sdk.client.ParamSource;
 import com.cumulocity.sdk.client.inventory.InventoryFilter;
+import com.cumulocity.sdk.client.util.StringUtils;
 
 public class CustomInventoryFilter extends InventoryFilter {
 	@ParamSource

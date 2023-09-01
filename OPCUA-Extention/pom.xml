@@ -4,17 +4,16 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.opcua</groupId>
 	<artifactId>opcua-extention</artifactId>
-	<version>1.0.3-SNAPSHOT</version>
+	<version>1.0.4-SNAPSHOT</version>
 	<name>opcua-extention</name>
 	<description>opcua extention to onboard opcua device protocol using csv</description>
 	<properties>
-		<revision>1006.6.0</revision>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
-		<c8y.version>${revision}</c8y.version>
+		<c8y.version>1017.0.258</c8y.version>
 		<microservice.name>opcua-extention</microservice.name>
-		<spring.boot.version>2.6.1</spring.boot.version>
+		<spring.boot.version>2.5.14</spring.boot.version>
 	</properties>
 	
 	<repositories>
@@ -38,23 +37,14 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.nsn.cumulocity.clients-java</groupId>
-			<artifactId>microservice-autoconfigure</artifactId>
-		</dependency>
+        <groupId>com.nsn.cumulocity.clients-java</groupId>
+        <artifactId>microservice-autoconfigure</artifactId>
+        <version>${c8y.version}</version>
+    </dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -77,17 +67,10 @@
 			<version>5.2.2</version>
 		</dependency>
 		<dependency>
-			<groupId>javax.annotation</groupId>
-			<artifactId>javax.annotation-api</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
 		</dependency>
-		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-cache</artifactId>
-		</dependency>
-		<dependency>
-		  <groupId>com.fasterxml.jackson.datatype</groupId>
-		  <artifactId>jackson-datatype-joda</artifactId>
-		</dependency> 
 	</dependencies>
 	
 	<dependencyManagement>

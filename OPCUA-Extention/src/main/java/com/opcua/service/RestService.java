@@ -37,7 +37,8 @@ public class RestService {
 	
 	@RequestMapping(value = "uploadDP", method = RequestMethod.POST, consumes = { MediaType.MULTIPART_FORM_DATA_VALUE, MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<?> deviceProtocolFileUpload(
-			@RequestPart("file") MultipartFile file
+			@RequestPart("file") MultipartFile file,
+			@RequestPart("mode") String mode
 			) {
 			
 		if (!file.getContentType().contains("csv")) {
@@ -50,8 +51,7 @@ public class RestService {
 					.body(new CustomError(HttpStatus.NO_CONTENT, "Empty File not allowed"));
 		}		
 
-		String message = deviceProtocolService.readFile(file);
-		
+		String message = deviceProtocolService.readFile(file, mode);
 		
 		return util.checkMessageAndProcessResponse(message);
 	}
